@@ -11,16 +11,23 @@ form.addEventListener('submit', (e) => {
   li.textContent = text;
   ul.appendChild(li);
 
+  //creating a label
   const confirmedLabel = document.createElement('label');
   confirmedLabel.textContent = 'Confirmed';
+  //create a checkbox
   const confirmedCheckbox = document.createElement('input');
   confirmedCheckbox.type = 'checkbox';
 
+  //create a remove button
+
+
+  //append child label & checkbox to list
   li.appendChild(confirmedLabel);
   confirmedLabel.appendChild(confirmedCheckbox);
 
 });
 
+//event listener on Confrimed checkbox
 ul.addEventListener('change', (e) => {
   const checkbox = event.target;
   const checked = checkbox.checked;
