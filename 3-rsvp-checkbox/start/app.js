@@ -17,13 +17,17 @@ form.addEventListener('submit', (e) => {
   //create a checkbox
   const confirmedCheckbox = document.createElement('input');
   confirmedCheckbox.type = 'checkbox';
+  confirmedCheckbox.title = 'Check if the guest confirmed';
 
   //create a remove button
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'Remove';
+  removeButton.title = 'Click here to remove the guest';
 
-
-  //append child label & checkbox to list
+  //append child label, checkbox & remove button to list
   li.appendChild(confirmedLabel);
   confirmedLabel.appendChild(confirmedCheckbox);
+  li.appendChild(removeButton);
 
 });
 
@@ -39,6 +43,13 @@ ul.addEventListener('change', (e) => {
     parentLabel.className = '';
 
   }
+});
 
-  
+//event listener on Remove Button
+ul.addEventListener('click', (e) => {
+  if(event.target.tagName == 'BUTTON') {
+    removeClickedLi = event.target.parentNode;
+    ul.removeChild(removeClickedLi); 
+
+  }
 });
