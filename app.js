@@ -67,14 +67,27 @@ ul.addEventListener('click', (e) => {
     const liEditButtonClicked = event.target;
     const parentNodeOf_liEditButtonClicked = liEditButtonClicked.parentNode;
     const a = parentNodeOf_liEditButtonClicked.firstElementChild;
-    console.log(a);
+    //console.log(a);
     const b = a.tagName;
-    console.log(b);
+    //console.log(b);
     const editName = document.createElement('input');
-    parentNodeOf_liEditButtonClicked.insertBefore(editName, a);
+    parentNodeOf_liEditButtonClicked.insertBefore(editName, a); 
     parentNodeOf_liEditButtonClicked.removeChild(a);
-    //editName.placeholder = a;
-    editName.textContent = a;
+    editName.placeholder = a.textContent;
+    liEditButtonClicked.textContent = 'Save';
+
+    liEditButtonClicked.addEventListener('click', (e) => { //hander for save button
+      if(event.target.textContent === 'Save') {
+        const newName = document.createElement('div');
+        parentNodeOf_liEditButtonClicked.insertBefore(newName, a);
+        parentNodeOf_liEditButtonClicked.removeChild(a);
+        newName.textContent = editName.value;
+        liEditButtonClicked.textContent = 'Edit';  
+
+      }
+    
+    });
+
 
 
   }
